@@ -13,8 +13,8 @@
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
 
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="HRVISIONLOGO.jpg">
+  <link rel="icon" type="image/png" href=".HRVISIONLOGO.jpg">
 
   <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -209,21 +209,21 @@
 
                  
            
-                  <!-- <div class="wrap-input100 validate-input bg1">
-                    <span class="label-input100">Actual Interview time </span>
-                    <input class="input100" type="text" name="interview_time" placeholder="Enter scheduling and prep time">
+                  <div class="wrap-input100 validate-input bg1">
+                    <span class="label-input100">Time spent for interview and interview prep (mins) </span>
+                    <input class="input100" type="text" name="interview_time" placeholder="Enter scheduling and prep time" hidden>
                   
 
                     <div class="contact100-form-range-value">
                       <span id="demo3">0</span> 
                     </div>
         
-                    <div class="slidecontainer"> -->
+                    <div class="slidecontainer"> 
                       <!-- <div id="filter-bar"></div> -->
-                      <!-- <input type="range" min="0" max="200" value="0" class="slider" id="filter-bar3">
+                      <input type="range" min="0" max="200" value="0" class="slider" id="filter-bar3"> 
                     </div>
 
-                  </div> -->
+                  </div>
                   
 
 
@@ -262,10 +262,10 @@
 
                 var members  = document.getElementById("filter-bar1").value;
                 var rounds  = document.getElementById("filter-bar2").value;
-                // var interview_time  = document.getElementById("filter-bar3").value;
+                var interview_time  = document.getElementById("filter-bar3").value;
                 var wage  = document.getElementById("filter-bar4").value;
 
-                var minsSaved = hirespi * hirespy * 90 * rounds;
+                var minsSaved = hirespi * hirespy * interview_time * rounds;
                 var costSaved = (minsSaved/60) * wage;
                 var costph = costSaved/hirespy;
 
@@ -561,15 +561,15 @@ html2canvas($(".wrapper1")[0],{allowTaint:true}).then(function(canvas) {
       var slider1 = document.getElementById("filter-bar2");
       var output1 = document.getElementById("demo2");
 
-      // var slider2 = document.getElementById("filter-bar3");
-      // var output2 = document.getElementById("demo3");
+      var slider2 = document.getElementById("filter-bar3");
+      var output2 = document.getElementById("demo3");
 
       var slider3 = document.getElementById("filter-bar4");
       var output3 = document.getElementById("demo4");
 
       output.innerHTML = slider.value;
       output1.innerHTML = slider1.value;
-      // output2.innerHTML = slider2.value;
+      output2.innerHTML = slider2.value;
       output3.innerHTML = slider3.value;
       
       slider.oninput = function() {
@@ -580,9 +580,9 @@ html2canvas($(".wrapper1")[0],{allowTaint:true}).then(function(canvas) {
         output1.innerHTML = this.value;
       }
 
-      // slider2.oninput = function() {
-      //   output2.innerHTML = this.value;
-      // }
+      slider2.oninput = function() {
+        output2.innerHTML = this.value;
+      }
 
       slider3.oninput = function() {
         output3.innerHTML = this.value;
