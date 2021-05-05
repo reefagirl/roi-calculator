@@ -152,7 +152,6 @@
           <div class="card">
              <div class="card-header card-header-danger">
               <h4 class="card-title">ROI Calculator</h4>
-              <p class="card-category">Calculate ROI Here</p>
           </div>
           <div class="card-body">
             <div class="container-contact100">
@@ -167,7 +166,7 @@
                   </div>
 
                   <div class="wrap-input100 bg1 rs1-wrap-input100" data-validate="Please Type Your Name">
-                    <span class="label-input100">Candidates interview for one hire</span>
+                    <span class="label-input100">approximately how many candidates interviewed for one hire</span>
                     <input class="input100" id="hirespi" type="text" name="name" placeholder="Enter Candidates per Hire">
 
                     
@@ -177,7 +176,7 @@
           
                   
                   <div class="wrap-input100 bg1 rs1-wrap-input100">
-                    <span class="label-input100">Members attend for one interview</span>
+                    <span class="label-input100">how many of your team members attend for one interview</span>
                     <input class="input100" type="text" name="phone" placeholder="Enter members for one interview" hidden>
 
                     <div class="contact100-form-range-value">
@@ -210,7 +209,7 @@
                  
            
                   <div class="wrap-input100 validate-input bg1">
-                    <span class="label-input100">Time spent for interview and interview prep (mins) </span>
+                    <span class="label-input100">time spend for one interview and interview prep (MINS) </span>
                     <input class="input100" type="text" name="interview_time" placeholder="Enter scheduling and prep time" hidden>
                   
 
@@ -228,7 +227,7 @@
 
 
                   <div class="wrap-input100 validate-input bg1">
-                    <span class="label-input100">Hourly wage for a professional  </span>
+                    <span class="label-input100">hourly wage for one professional in your organization (USD)  </span>
                     <input class="input100" type="text" name="hourly_wage" placeholder="Enter hourly wage" hidden>
                   
 
@@ -246,7 +245,7 @@
                   <div class="container-contact100-form-btn">
                     <button class="contact100-form-btn" id="submitBut" onclick="calculateROI()" >
                       <span>
-                        Submit
+                        Get ROI
                         <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                       </span>
                     </button>
@@ -266,12 +265,13 @@
                 var wage  = document.getElementById("filter-bar4").value;
 
                 var minsSaved = hirespi * hirespy * interview_time * rounds;
-                var costSaved = (minsSaved/60) * wage;
+                var costSaved = (minsSaved/60) * wage;          
                 var costph = costSaved/hirespy;
+                var hoursSaved =  minsSaved/60;
 
-                document.getElementById("timeSavings").textContent = minsSaved/60 + " Hours";
-                document.getElementById("totalSavings").textContent = "USD " + costSaved;
-                document.getElementById("costperhire").textContent = "USD " + costph;
+                document.getElementById("timeSavings").textContent = Math.round(hoursSaved * 100)/100 + " Hours";
+                document.getElementById("totalSavings").textContent = "USD " + Math.round(costSaved * 100)/100;
+                document.getElementById("costperhire").textContent = "USD " + Math.round(costph * 100)/100;
 
               }
               </script>
@@ -286,7 +286,7 @@
         <div class="col-md-4">
           <div class="card card-chart">
             <div class="card-header card-header-danger">
-              <div class="ct-chart" id="dailySalesChart"></div>
+              <div  id="dailySalesChart"></div>
             </div>
             <div class="card-body">
               <h4 class="card-title">Total Savings Annually - Time</h4>
@@ -304,7 +304,7 @@
         <div class="col-md-4">
           <div class="card card-chart">
             <div class="card-header card-header-warning">
-              <div class="ct-chart" id="websiteViewsChart"></div>
+              <div  id="websiteViewsChart"></div>
             </div>
             <div class="card-body">
               <h4 class="card-title">Total Savings Annually - Cost</h4>
@@ -321,7 +321,7 @@
        <div class="col-md-4">
           <div class="card card-chart">
             <div class="card-header card-header-success">
-              <div class="ct-chart" id="completedTasksChart"></div>
+              <div  id="completedTasksChart"></div>
             </div>
             <div class="card-body">
               <h4 class="card-title">Cost saved per Hire</h4>
