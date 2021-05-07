@@ -8,7 +8,7 @@
     $('.validate-input .input100').each(function(){
         $(this).on('blur', function(){
             if(validate(this) == false){
-                showValidate(this);
+                // showValidate(this);
             }
             else {
                 $(this).parent().addClass('true-validate');
@@ -26,7 +26,7 @@
 
         for(var i=0; i<input.length; i++) {
             if(validate(input[i]) == false){
-                showValidate(input[i]);
+                // showValidate(input[i]);
                 check=false;
             }
         }
@@ -37,7 +37,7 @@
 
     $('.validate-form .input100').each(function(){
         $(this).focus(function(){
-           hideValidate(this);
+        //    hideValidate(this);
            $(this).parent().removeClass('true-validate');
         });
     });
@@ -63,7 +63,7 @@
         $(thisAlert).append('<span class="btn-hide-validate">&#xf136;</span>')
         $('.btn-hide-validate').each(function(){
             $(this).on('click',function(){
-               hideValidate(this);
+            //    hideValidate(this);
             });
         });
     }
