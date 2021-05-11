@@ -117,35 +117,7 @@
       </div>
 
       <br> <!-- <br><br><br> -->
-      <!-- NAV BAR-->
-    <!-- <nav class="navbar navbar-expand-lg bg-primary">
-      <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-bar navbar-kebab"></span>
-        <span class="navbar-toggler-bar navbar-kebab"></span>
-        <span class="navbar-toggler-bar navbar-kebab"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav> -->
-     
-   <!--  <br><br><br> -->
+    
 
       <div class="row" style="margin: auto; display: block;">
         <div class="col-md">
@@ -362,8 +334,8 @@ var HTML_Height = $(".wrapper1").height();
 var top_left_margin = 15;
 var PDF_Width = HTML_Width+(top_left_margin*2);
 var PDF_Height = (PDF_Width*1.5)+(top_left_margin*2);
-var canvas_image_width = 600;
-var canvas_image_height = 900;
+var canvas_image_width = 500;
+var canvas_image_height = 500;
 
 var totalPDFPages = Math.ceil(HTML_Height/PDF_Height)-1;
 
@@ -375,12 +347,12 @@ html2canvas($(".wrapper1")[0],{allowTaint:true}).then(function(canvas) {
   
   
   var imgData = canvas.toDataURL("image/jpeg", 1.0);
-  var pdf = new jsPDF('p', 'pt',  [650, 950]);
+  var pdf = new jsPDF('p', 'pt',  [650, 550]);
     pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
   
   
   for (var i = 1; i <= totalPDFPages; i++) { 
-    pdf.addPage(650, 950);
+    pdf.addPage(650, 550);
     pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
   }
   
